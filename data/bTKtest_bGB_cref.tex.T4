@@ -1,0 +1,22 @@
+\expandafter\newcommand\csname databTKtestbGBcrefrpttab\endcsname{
+\begin{table}[H]
+\begin{tabular}
+{| 
+ p{\dimexpr0.333\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.333\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.333\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+\textbf{recovered} &\textbf{total} &\textbf{Percentage} \\ \hline 
+2121.0 &2286.0 &92.782 \\ \hline 
+165.0 &5734.0 &2.878 \\ \hline 
+0.0 &0.0 &0.0 \\ \hline 
+139.0 &24514.0 &0.567 \\ \hline 
+\end{tabular} 
+\end{table}
+}
+\begin{figure}[H]
+                \centering
+	        \includegraphics[width=1\textwidth,height=.4\textheight]{data/bTKtest_bGB_cref_CONFIRMED.pdf}
+                \caption{: Planets predicted as CONFIRMED}
+                \label{fig:data/bTKtest_bGB_cref}
+                \end{figure}

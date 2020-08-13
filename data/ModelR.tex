@@ -1,0 +1,33 @@
+\begin{table}[!htbp]
+ \centering
+ \caption{List of models and their precision}
+ \label{temptab} 
+  \begin{tabular}
+{| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+\textbf{Name} &\textbf{Precision} &\textbf{Accuracy} &\textbf{Model} &\textbf{Comment} \\ \hline 
+XGB\_vif\_cap2 &0.84 &0.85 &xgboost.XGBClassifier &Coerced to use XGB - overfitted \\ \hline 
+GB\_vif\_cap2 &0.83 &0.86 &sklearn.ensemble.GradientBoostingClassifier &TPOT None: EARLY\_STOP=3 duration=35:59:3 overfitted- overfitted 100\% \\ \hline 
+XGB\_vif &0.83 &0.851 &xgboost.XGBClassifier &Coerced to use XGB - overfitted \\ \hline 
+GB &0.82 &0.857 &sklearn.ensemble.GradientBoostingClassifier &Best model found Early stop=3 Time=6:7:44 but overfitted - 100\%  \\ \hline 
+XGB &0.82 &0.85 &xgboost.XGBClassifier &- \\ \hline 
+RF\_vif\_cap2 &0.82 &0.85 &sklearn.ensemble.RandomForestClassifier &Early Stop=3 - slightly overfit - rerun too short \\ \hline 
+GBtest &0.81 &0.863 &sklearn.ensemble.GradientBoostingClassifier &GB copy for testing \\ \hline 
+RF &0.81 &0.851 &sklearn.ensemble.RandomForestClassifier &Early Stop=3 - still slightly overfitted \\ \hline 
+LR &0.8 &0.847 &sklearn.linear\_model.LogisticRegression &TPOT light - train AUC = test AUC \\ \hline 
+DT &0.796 &0.807 &sklearn.tree.DecisionTreeClassifier &TPOT light - train AUC approx test AUC \\ \hline 
+LR\_vif\_cap2 &0.791 &0.847 &sklearn.linear\_model.LogisticRegression &TPOT light - train AUC= test AUC \\ \hline 
+DT\_vif &0.77 &0.819 &sklearn.tree.DecisionTreeClassifier &TPOT light - very slight overfit \\ \hline 
+BernoulliNB &0.441 &0.557 &sklearn.naive\_bayes.BernoulliNB &TPOT coerced to use BernoulliNB \\ \hline 
+KNeighborsClassifier &0.416 &0.489 &sklearn.neighbors.KNeighborsClassifier &TPOT coerced to use KNeighborsClassifier \\ \hline 
+GaussianNB &0.347 &0.38 &sklearn.naive\_bayes.GaussianNB &TPOT coerced to use GaussianNB \\ \hline 
+RF\_vif &- &0.846 &sklearn.ensemble.RandomForestClassifier &Early Stop=3 - rerun \\ \hline 
+DT\_vif\_cap2 &- &0.804 &sklearn.tree.DecisionTreeClassifier &coerced - reru \\ \hline 
+SVC &- &- &sklearn.svm.SVC &TPOT coerced to use SVC \\ \hline 
+\end{tabular} 
+\end{table}

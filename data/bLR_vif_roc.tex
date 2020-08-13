@@ -1,0 +1,39 @@
+\expandafter\newcommand\csname databLRvifmetrictab\endcsname{
+\begin{table}[H]
+\begin{tabular}
+{| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+\textbf{} &\textbf{f1-score} &\textbf{precision} &\textbf{recall} &\textbf{support} \\ \hline 
+CONFIRMED &0.844 &0.834 &0.855 &241.0 \\ \hline 
+FALSE POSITIVE &0.932 &0.937 &0.927 &561.0 \\ \hline 
+accuracy &0.905 &0.905 &0.905 &0.905 \\ \hline 
+macro avg &0.888 &0.885 &0.891 &802.0 \\ \hline 
+weighted avg &0.906 &0.906 &0.905 &802.0 \\ \hline 
+\end{tabular} 
+\end{table}
+}
+\begin{figure}[H]
+                \centering
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bLR_vif_overfit_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bLR_vif_overfit_cm.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bLR_vif_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bLR_vif_cm.pdf}
+                \end{subfigure}
+                \begin{subfigure}{1\textwidth}
+                \csname databLRvifmetrictab\endcsname
+                \end{subfigure}
+                \caption{bLRvif: Top Row: overfit test. Middle and bottom row test data}
+                \label{fig:data/bLR_vif_roc}
+                \end{figure}

@@ -1,0 +1,49 @@
+\begin{table}[!htbp]
+ \centering
+ \caption{Planet confirmed by models GBtest and LR with probability $>$ 95\%}
+ \label{dataGBtestLRcreftab} 
+  \begin{tabular}
+{| 
+ p{\dimexpr0.167\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.167\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.167\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.167\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.167\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.167\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+\textbf{kepid} &\textbf{plnt num} &\textbf{kname} &\textbf{dispos} &\textbf{GBtest} &\textbf{LR} \\ \hline 
+11709124 &2 &- &- &0.998 &0.867 \\ \hline 
+8552719 &2 &K01792.02 &FP &0.995 &0.949 \\ \hline 
+5370302 &2 &- &- &0.995 &0.866 \\ \hline 
+10794087 &1 &K01316.01 &CAND &0.992 &0.914 \\ \hline 
+2581316 &2 &K03681.02 &CAND &0.991 &0.942 \\ \hline 
+6762829 &2 &- &- &0.99 &0.892 \\ \hline 
+10904857 &2 &- &- &0.99 &0.845 \\ \hline 
+8953059 &2 &- &- &0.989 &- \\ \hline 
+8176650 &2 &- &- &0.989 &0.905 \\ \hline 
+7037540 &2 &- &- &0.988 &0.956 \\ \hline 
+9288786 &2 &- &- &0.988 &0.819 \\ \hline 
+5786676 &1 &K00650.01 &CAND &0.987 &0.858 \\ \hline 
+9411166 &2 &- &- &0.987 &0.921 \\ \hline 
+9071386 &2 &- &- &0.987 &0.956 \\ \hline 
+7584650 &1 &K02631.01 &CAND &0.984 &0.805 \\ \hline 
+9446824 &2 &- &- &0.983 &0.908 \\ \hline 
+8180020 &2 &- &- &0.982 &0.927 \\ \hline 
+3970233 &2 &- &- &0.979 &0.935 \\ \hline 
+5376836 &2 &- &- &0.977 &0.819 \\ \hline 
+5872150 &3 &- &- &0.977 &0.764 \\ \hline 
+12504988 &2 &- &- &0.976 &0.905 \\ \hline 
+10616571 &3 &- &- &0.974 &0.731 \\ \hline 
+6698670 &2 &- &- &0.972 &0.826 \\ \hline 
+3734868 &2 &- &- &0.971 &0.778 \\ \hline 
+7975727 &2 &- &- &0.97 &0.804 \\ \hline 
+9838975 &2 &- &- &0.97 &0.927 \\ \hline 
+12115188 &2 &- &- &0.969 &0.633 \\ \hline 
+4840513 &2 &- &- &0.968 &0.512 \\ \hline 
+9995771 &1 &K03470.01 &CAND &0.967 &0.636 \\ \hline 
+9528420 &2 &- &- &0.963 &- \\ \hline 
+9934208 &2 &- &- &0.961 &0.69 \\ \hline 
+5372966 &2 &- &- &0.96 &0.485 \\ \hline 
+9649222 &2 &- &- &0.951 &0.81 \\ \hline 
+\end{tabular} 
+\end{table}

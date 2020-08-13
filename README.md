@@ -1,7 +1,10 @@
-# statkep
-git status
-vim <somefile>
-git commit -a
-git push
-username: m....nm...n9
-pass:W...A....e9.
+MSC in Data Analytic at NCIRL 
+
+exoplanet.pdf - Report
+configManual.pdf - Configuration Manual
+
+vivaOverview1.mp4 - Overview
+viva.pdf
+
+codeWT.mp4 - code walkthrough
+codeWT.pdf

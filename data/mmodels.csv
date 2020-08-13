@@ -1,0 +1,17 @@
+"Name",Precision,Accuracy,Model
+"GB_vif",0.83,0.858,ensemble.GradientBoostingClassifier
+"GB",0.82,0.857,ensemble.GradientBoostingClassifier
+"RF",0.82,0.856,ensemble.RandomForestClassifier
+"RF_vif",0.82,0.854,ensemble.RandomForestClassifier
+"GBtest",0.810,0.863,ensemble.GradientBoostingClassifier
+"RF_vif_cap2",0.81,0.850,ensemble.RandomForestClassifier
+"LR",0.80,0.847,linear_model.LogisticRegression
+"DT",0.796,0.807,tree.DecisionTreeClassifier
+"LR_vif_cap2",0.791,0.847,linear_model.LogisticRegression
+"DT_vif",0.77,0.819,tree.DecisionTreeClassifier
+"BernoulliNB",0.441,0.557,naive_bayes.BernoulliNB
+"KNeighborsClassifier",0.416,0.489,neighbors.KNeighborsClassifier
+"GaussianNB",0.347,0.380,naive_bayes.GaussianNB
+"GB_vif_cap2",-,0.858,ensemble.GradientBoostingClassifier
+"DT_vif_cap2",-,0.804,tree.DecisionTreeClassifier
+"SVC",-,-,svm.SVC

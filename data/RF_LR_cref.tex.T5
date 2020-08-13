@@ -1,0 +1,22 @@
+\expandafter\newcommand\csname dataRFLRcreftab\endcsname{
+\begin{table}[H]
+\begin{tabular}
+{| 
+ p{\dimexpr0.143\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.143\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.143\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.143\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.143\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.143\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.143\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+\textbf{kepid} &\textbf{tce\_plnt\_num} &\textbf{kepoi\_name} &\textbf{koi\_disposition} &\textbf{LR} &\textbf{RF} &\textbf{\_merge} \\ \hline 
+8456679 &2 &K00102.02 &FALSE POSITIVE &0.972 &0.529 &both \\ \hline 
+8480285 &1 &K00691.01 &CANDIDATE &0.971 &0.798 &both \\ \hline 
+8804455 &2 &K02159.02 &FALSE POSITIVE &0.963 &0.705 &both \\ \hline 
+10788461 &1 &K03925.01 &CANDIDATE &0.959 &nan &left\_only \\ \hline 
+9071386 &2 &nan &nan &0.956 &0.609 &both \\ \hline 
+7037540 &2 &nan &nan &0.956 &0.933 &both \\ \hline 
+\end{tabular} 
+\end{table}
+}

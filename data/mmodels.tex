@@ -1,0 +1,30 @@
+\begin{table}[!htbp]
+ \centering
+ \caption{List of models and data sources in order of precision\newline \textbf{Name} (\_vif=Treated for multi-correlation \ref{ssec:multicorrel}), (\_cap2=outliers capped \ref{ssec:outliers})}
+ \label{datammodelstab} 
+  \begin{tabular}
+{| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.15\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.15\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.5\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+\textbf{Name} &\textbf{Precision} &\textbf{Accuracy} &\textbf{Model} \\ \hline 
+GB\_vif &0.83 &0.858 &ensemble.GradientBoostingClassifier \\ \hline 
+\textbf{GB} &0.82 &0.857 &ensemble.GradientBoostingClassifier \\ \hline 
+\textbf{RF} &0.82 &0.856 &ensemble.RandomForestClassifier \\ \hline 
+RF\_vif &0.82 &0.854 &ensemble.RandomForestClassifier \\ \hline 
+GBtest &0.810 &0.863 &ensemble.GradientBoostingClassifier \\ \hline 
+RF\_vif\_cap2 &0.81 &0.850 &ensemble.RandomForestClassifier \\ \hline 
+\textbf{LR} &0.80 &0.847 &linear\_model.LogisticRegression \\ \hline 
+\textbf{DT} &0.796 &0.807 &tree.DecisionTreeClassifier \\ \hline 
+LR\_vif\_cap2 &0.791 &0.847 &linear\_model.LogisticRegression \\ \hline 
+DT\_vif &0.77 &0.819 &tree.DecisionTreeClassifier \\ \hline 
+BernoulliNB &0.441 &0.557 &naive\_bayes.BernoulliNB \\ \hline 
+KNeighbors Classifier &0.416 &0.489 &neighbors.KNeighborsClassifier \\ \hline 
+GaussianNB &0.347 &0.380 &naive\_bayes.GaussianNB \\ \hline 
+GB\_vif\_cap2 &- &0.858 &ensemble.GradientBoostingClassifier \\ \hline 
+DT\_vif\_cap2 &- &0.804 &tree.DecisionTreeClassifier \\ \hline 
+SVC &- &- &svm.SVC \\ \hline 
+\end{tabular} 
+\end{table}

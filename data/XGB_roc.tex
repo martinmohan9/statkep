@@ -1,0 +1,40 @@
+\expandafter\newcommand\csname dataXGBmetrictab\endcsname{
+\begin{table}[H]
+\begin{tabular}
+{| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+\textbf{} &\textbf{f1-score} &\textbf{precision} &\textbf{recall} &\textbf{support} \\ \hline 
+CANDIDATE &0.621 &0.691 &0.565 &170.0 \\ \hline 
+CONFIRMED &0.853 &0.82 &0.888 &241.0 \\ \hline 
+FALSE POSITIVE &0.933 &0.92 &0.946 &391.0 \\ \hline 
+accuracy &0.848 &0.848 &0.848 &0.848 \\ \hline 
+macro avg &0.802 &0.81 &0.8 &802.0 \\ \hline 
+weighted avg &0.843 &0.842 &0.848 &802.0 \\ \hline 
+\end{tabular} 
+\end{table}
+}
+\begin{figure}[H]
+                \centering
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/XGB_overfit_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/XGB_overfit_cm.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/XGB_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/XGB_cm.pdf}
+                \end{subfigure}
+                \begin{subfigure}{1\textwidth}
+                \csname dataXGBmetrictab\endcsname
+                \end{subfigure}
+                \caption{XGB: Top Row: overfit test. Middle and bottom row test data}
+                \label{fig:data/XGB_roc}
+                \end{figure}

@@ -1,0 +1,12 @@
+
+\begin{figure}[H]
+                \centering
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bTKtest_bGB_overfit_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bTKtest_bGB_overfit_cm.pdf}
+                \end{subfigure}
+                \caption{bGB: Overfit check (train data). ROC Curve, Confusion Matrix}
+                \label{fig:data/bTKtest_bGB_overfit_roc}
+                \end{figure}

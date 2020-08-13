@@ -1,0 +1,41 @@
+\expandafter\newcommand\csname databGBtestmetrictab\endcsname{
+\begin{table}[H]
+\begin{tabular}
+{| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+\textbf{} &\textbf{f1-score} &\textbf{precision} &\textbf{recall} &\textbf{support} \\ \hline 
+CONFIRMED &0.859 &0.835 &0.884 &241.0 \\ \hline 
+FALSE POSITIVE &0.937 &0.949 &0.925 &561.0 \\ \hline 
+accuracy &0.913 &0.913 &0.913 &0.913 \\ \hline 
+macro avg &0.898 &0.892 &0.904 &802.0 \\ \hline 
+weighted avg &0.913 &0.915 &0.913 &802.0 \\ \hline 
+\end{tabular} 
+\end{table}
+}
+\begin{figure}[H]
+                \begin{mdframed}[linecolor=green]
+                \centering
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bGBtest_overfit_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bGBtest_overfit_cm.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bGBtest_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bGBtest_cm.pdf}
+                \end{subfigure}
+                \begin{subfigure}{1\textwidth}
+                \csname databGBtestmetrictab\endcsname
+                \end{subfigure}
+                \caption{bGBtest: Top Row: overfit test. Middle and bottom row test data}
+                \label{fig:data/bGBtest_roc}
+                \end{mdframed}
+                \end{figure}

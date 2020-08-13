@@ -1,0 +1,40 @@
+\expandafter\newcommand\csname dataLRvifcap2metrictab\endcsname{
+\begin{table}[H]
+\begin{tabular}
+{| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+\textbf{} &\textbf{f1-score} &\textbf{precision} &\textbf{recall} &\textbf{support} \\ \hline 
+CANDIDATE &0.597 &0.704 &0.518 &170.0 \\ \hline 
+CONFIRMED &0.833 &0.791 &0.88 &241.0 \\ \hline 
+FALSE POSITIVE &0.922 &0.902 &0.944 &391.0 \\ \hline 
+accuracy &0.834 &0.834 &0.834 &0.834 \\ \hline 
+macro avg &0.784 &0.799 &0.78 &802.0 \\ \hline 
+weighted avg &0.827 &0.827 &0.834 &802.0 \\ \hline 
+\end{tabular} 
+\end{table}
+}
+\begin{figure}[H]
+                \centering
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/LR_vif_cap2_overfit_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/LR_vif_cap2_overfit_cm.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/LR_vif_cap2_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/LR_vif_cap2_cm.pdf}
+                \end{subfigure}
+                \begin{subfigure}{1\textwidth}
+                \csname dataLRvifcap2metrictab\endcsname
+                \end{subfigure}
+                \caption{LRvifcap2: Top Row: overfit test. Middle and bottom row test data}
+                \label{fig:data/LR_vif_cap2_roc}
+                \end{figure}

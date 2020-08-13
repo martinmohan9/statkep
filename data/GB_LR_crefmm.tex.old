@@ -1,0 +1,43 @@
+\begin{table}[!htbp]
+ \centering
+ \caption{Planet confirmed by models GB and LR with probability $>$ 95\%}
+ \label{dataGBLRcreftab} 
+  \begin{tabular}
+{| 
+ p{\dimexpr0.15\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.1\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.15\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.14\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.1\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.1\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.26\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+      \textbf{kepid} &\textbf{plnt num} &\textbf{kname} &\textbf{dispos} &\textbf{GB} &\textbf{LR}&\textbf{NASA Note}\\ \hline 
+      9071386 &2 &- &- &0.97 &0.956&No record\\ \hline 
+      8552719 &2 &K01792.02 &FP &0.969 &0.949 & \cite{morton_false_2016} \\ \hline 
+      7037540 &2 &- &- &0.962 &0.956&No record\\ \hline 
+      2581316 &2 &K03681.02 &CAND &0.975 &0.942&No record\\ \hline 
+      3970233 &2 &- &- &0.964 &0.935&No record\\ \hline 
+      8180020 &2 &- &- &0.971 &0.927&No record\\ \hline 
+      9411166 &2 &- &- &0.973 &0.921&No record\\ \hline 
+      10794087 &1 &K01316.01 &CAND &0.977 &0.914&No record\\ \hline 
+      9838975 &2 &- &- &0.962 &0.927&No record\\ \hline 
+      8176650 &2 &- &- &0.974 &0.905&No record\\ \hline 
+      9446824 &2 &- &- &0.953 &0.908&No record\\ \hline 
+      12504988 &2 &- &- &0.954 &0.905&No record\\ \hline 
+      11709124 &2 &- &- &0.988 &0.867&No record\\ \hline 
+      5370302 &2 &- &- &0.976 &0.866&No record\\ \hline 
+      5035972 &2 &- &- &0.95 &0.866&No record\\ \hline 
+      9288786 &2 &- &- &0.975 &0.819&No record\\ \hline 
+      7975727 &2 &- &- &0.979 &0.804&No record\\ \hline 
+      5872150 &3 &- &- &0.96 &0.764&No record\\ \hline 
+      10616571 &3 &- &- &0.982 &0.731&No record\\ \hline 
+      9934208 &2 &- &- &0.966 &0.69&No record\\ \hline 
+      12115188 &2 &- &- &0.97 &0.633&No record\\ \hline 
+      4840513 &2 &- &- &0.975 &0.512&No record\\ \hline 
+      8456679 &2 &K00102.02 &FP &- &0.972&No record\\ \hline 
+      8480285 &1 &K00691.01 &CAND &- &0.971&No record\\ \hline 
+      8804455 &2 &K02159.02 &FP &- &0.963&No record\\ \hline 
+      10788461 &1 &K03925.01 &CAND &- &0.959&No record\\ \hline 
+\end{tabular} 
+\end{table}

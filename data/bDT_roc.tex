@@ -1,0 +1,39 @@
+\expandafter\newcommand\csname databDTmetrictab\endcsname{
+\begin{table}[H]
+\begin{tabular}
+{| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+\textbf{} &\textbf{f1-score} &\textbf{precision} &\textbf{recall} &\textbf{support} \\ \hline 
+CONFIRMED &0.739 &0.749 &0.73 &241.0 \\ \hline 
+FALSE POSITIVE &0.89 &0.885 &0.895 &561.0 \\ \hline 
+accuracy &0.845 &0.845 &0.845 &0.845 \\ \hline 
+macro avg &0.815 &0.817 &0.813 &802.0 \\ \hline 
+weighted avg &0.845 &0.844 &0.845 &802.0 \\ \hline 
+\end{tabular} 
+\end{table}
+}
+\begin{figure}[H]
+                \centering
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bDT_overfit_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bDT_overfit_cm.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bDT_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bDT_cm.pdf}
+                \end{subfigure}
+                \begin{subfigure}{1\textwidth}
+                \csname databDTmetrictab\endcsname
+                \end{subfigure}
+                \caption{bDT: Top Row: overfit test. Middle and bottom row test data}
+                \label{fig:data/bDT_roc}
+                \end{figure}

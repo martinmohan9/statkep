@@ -1,0 +1,16 @@
+Name,Precision CONFIRMED,Accuracy,Model
+GB_vif_cap2,0.835,0.859,sklearn.ensemble.GradientBoostingClassifier
+GB_vif,0.830,0.859,sklearn.ensemble.GradientBoostingClassifier
+RF_vif,0.817,0.855,sklearn.ensemble.RandomForestClassifier
+GB,0.816,0.855,sklearn.ensemble.GradientBoostingClassifier
+RF_vif_cap2,0.811,0.859,sklearn.ensemble.RandomForestClassifier
+GBtest,0.810,0.863,sklearn.ensemble.GradientBoostingClassifier
+RF,0.806,0.855,sklearn.ensemble.RandomForestClassifier
+LR,0.804,0.850,sklearn.linear_model.LogisticRegression
+DT,0.793,0.844,sklearn.tree.DecisionTreeClassifier
+LR_vif_cap2,0.791,0.834,sklearn.linear_model.LogisticRegression
+DT_vif,0.769,0.809,sklearn.tree.DecisionTreeClassifier
+BernoulliNB,0.441,0.555,sklearn.naive_bayes.BernoulliNB
+KNeighborsClassifier,0.416,0.522,sklearn.neighbors.KNeighborsClassifier
+GaussianNB,0.348,0.409,sklearn.naive_bayes.GaussianNB
+DT_vif_cap2,-,0.804,sklearn.tree.DecisionTreeClassifier

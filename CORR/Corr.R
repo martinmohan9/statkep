@@ -1,0 +1,176 @@
+#!/usr/bin/env Rscript
+oldw <- getOption("warn")
+options(warn = -1)
+
+# Suppress messages in argv
+suppressPackageStartupMessages(library("caret"))
+#suppressPackageStartupMessages(library("tidyverse"))
+suppressPackageStartupMessages(library("argparse"))
+
+# Options by default ArgumentParser will add an help option
+parser <- ArgumentParser(description="Filter multicorrelated values with pearson's R 0 to 1 --omit columns such as Dependent Variable")
+parser$add_argument("-v", "--verbose", action="store_true", default=FALSE,
+                    help="verbose help [default %(default)s]")
+#parser$add_argument("-i","--ifile", default="data/TKtest_nohead.csv",
+parser$add_argument("-i","--ifile", default="data/TK_vif.csv",
+                    help="csv of  _numeric_ values to be correlated [default %(default)s]")
+parser$add_argument("--odir", default="dataCorr/",
+                    help="Directory to find files [default %(default)s]")
+parser$add_argument("--rmin", default=0.0, type="double",
+                    help="Minimum pearson's R [default %(default)s]")
+parser$add_argument("--rmax", default=1.0, type="double",
+                    help="Maximum pearson's R [default %(default)s]")
+parser$add_argument("--omit", default="koi_disposition,kepid,kepoi_name",
+                    help="List of cols to omit n.b. if koi_disposition is not omitted it will be made numeric - TODO subcols appears for kepid?) [default %(default)s]")
+parser$add_argument("--one", default="koi_disposition",
+                    help="Examine correlation of one value - TODO [default %(default)s]")
+#parser$add_argument("--numeric", action="store_true", default=FALSE,
+#                    help="This will make koi_disposition numeric [default %(default)s]")
+parser$add_argument("--hmap", action="store_true", default=FALSE,
+                    help="Save heatmap as pdf file [default %(default)s]")
+parser$add_argument("--hmapmax", action="store_true", default=FALSE,
+                    help="Heatmap as pdf file of all correlations [default %(default)s]")
+parser$add_argument("--corr", action="store_true", default=FALSE,
+                    help="Save correlateion file in csv format [default %(default)s]")
+argv <- parser$parse_args()
+
+rmax=argv$rmax
+rmin=argv$rmin
+
+if (rmax < 0 ||  rmax > 1){
+    print(paste0("Invalid Cutoff (0 < rmax < 1): ",rmax))
+    quit()
+}
+if (rmin < 0 ||  rmin > 1){
+    print(paste0("Invalid rmin (0 < rmin < 1): ",rmin))
+    quit()
+}
+if (rmin >= rmax){
+    print(paste0("Invalid rmax",rmax," >= rmin: ",rmin))
+    quit()
+}
+
+# Create heatmap from a csv file, dv cols are already removed
+hmap <- function(corrData,fname) {
+    col<- colorRampPalette(c("blue", "white", "red"))(20)
+    fname<-gsub("cor.csv","hmap.pdf",fname) # remove .csv
+    #    fname<-paste0(fname,"hmap.pdf")
+    res<-paste0("Output: heatmap ",fname)
+
+    #    comment=paste0(fname," Cutoff ",cutoff," Attributes ", dim(corrData)[2])
+#    comment=paste0(fname," Attributes ", dim(corrData)[2])
+    comment=""
+    #    corr<-cor(corrData)
+    corr<-cor(corrData,use="pairwise.complete.obs") # Missing values with sn
+
+    pdf(file=fname)
+    an.error.occured <- FALSE
+    tryCatch( { result <- heatmap(x = corr, col = col, symm = TRUE,Rowv = NA,Colv = NA, main=comment);
+        print(res) }
+    , error = function(e) {an.error.occured <<- TRUE})
+    if(an.error.occured){
+        #        print("Heatmap Error - is cutoff too high?",an.error.occured)
+        print("Heatmap Error",an.error.occured)
+        quit()
+    }
+    #    dev.off()
+}
+
+# write output to file and tell user
+outf <- function(dframe,fname,comment,rownames=FALSE) {
+    write.csv(dframe, file = fname, row.names = rownames)
+    print(paste0("Output: ", comment, " ",fname))
+}
+
+## Not run: ## Unix-flavour example
+.Last <- function() {
+    graphics.off() # close devices before printing
+    temp<-sessionInfo()
+    cat("bye...\n")
+}
+
+isEmpty <- function(x) {
+    return(identical(x, numeric(0)))
+}
+
+if (file.exists(argv$ifile)){
+    TCE1 <- read.csv(argv$ifile,comment.char = '#')
+} else{
+    print(paste0("File ",argv$ifile," xNot found"))
+    quit()
+}
+
+# CONFIRMED and CANDIDATE combined
+
+# Convert koi_disposition to numeric if you want to correlate it ( otherwise  function cor will fail with msg - 'x' must be numeric)
+print(paste0("Check kepid"))
+if(!grepl("kepoi_name", argv$omit, fixed=TRUE)){
+    print(paste0("kepoi_name must be among values omitted"))
+    quit()
+}
+
+print(paste0("argv$omit is ",argv$omit))
+if(grepl("koi_disposition", argv$omit, fixed=TRUE)){
+    TCE1$koi_disposition <- factor(TCE1$koi_disposition,levels=c("CONFIRMED","CANDIDATE","FALSE POSITIVE"),labels=c("CANDIDATE","CANDIDATE","FALSE POSITIVE"))
+    #    print(paste0("koi_dispostion not converted to numeric"))
+}else{
+    TCE1$koi_disposition <- as.numeric(factor(TCE1$koi_disposition,levels=c("CONFIRMED","CANDIDATE","FALSE POSITIVE"),labels=c("CANDIDATE","CANDIDATE","FALSE POSITIVE")))
+    print(paste0("koi_dispostion converted to numeric"))
+}
+colnames=unlist(strsplit(argv$omit, ",")) #list of colnames to omit
+
+subcols<-TCE1[,colnames] #  save subcols (rebind later)
+TCEomit<-TCE1[ , -which(names(TCE1) %in% colnames)] # Drop subcols 
+# CONFIRMED and CANDIDATE combined
+
+#TCE1$koi_disposition <- factor(TCE1$koi_disposition,levels=c("CONFIRMED","CANDIDATE","FALSE POSITIVE"),labels=c("CANDIDATE","CANDIDATE","FALSE POSITIVE"))
+
+print(paste0("Input: ",argv$ifile," rmin: ",rmin," rmax: ",rmax))
+# Correlation filename and output filename
+
+# Correlated values
+#TCE1cor = cor(TCEomit)
+TCE1cor<-cor(TCEomit,use="pairwise.complete.obs") # Missing values with sn
+cfname<-paste0(argv$odir,rmin,"_",rmax,"TCE2cor.csv")
+ofname<-paste0(argv$odir,rmin,"_",rmax,"TCE2.csv")
+if (argv$corr){outf(TCE1cor,cfname,"Correlation File",rownames=TRUE)}
+
+########### find corrlist values to be removed ##############
+TCE1all <- findCorrelation(TCE1cor , cutoff=0) # All correlations above 0
+# All  correlations below rmin
+cormin <- findCorrelation(TCE1cor , cutoff=rmin) # Correlations _above_ rmin
+cormin <- sort(TCE1all[!(TCE1all %in% cormin)])  # Correlation _below_ rmin
+
+# All correlations above rmax
+cormax <- findCorrelation(TCE1cor , cutoff=rmax) # All correlations above rmax
+
+# Combined list to remove
+corrlist<-append(cormin,cormax)
+#############################################################
+
+#TCE2 <- TCEomit
+
+if(!isEmpty(corrlist)){ # When _not_ empty nothing is removed
+    TCEomit <- TCEomit[,-c(corrlist)] # remove correlated cols rmin < cols < rmax
+}
+
+# Name files
+if (is.null(dim(TCEomit))) {
+    # Create empty files
+    cat(NULL,file=cfname)
+    cat(NULL,file=ofname)
+    print(paste0("Created empty files: ",cfname," ",ofname))
+    quit()
+}
+
+# re-attach subcols and output
+TCE2=cbind(subcols,TCEomit)
+outf(TCE2,ofname,paste0("Correlations between ",rmin,"<",rmax))
+# If TRUE output more files
+TCE2cor <- cor(TCEomit)
+#if (argv$corr){outf(TCE2cor,cfname,"Correlation File",rownames=TRUE)}
+if (argv$hmap){hmap(TCE2cor,cfname)}
+print(paste0("Stats: cor_all:",length(TCE1all)," ,cor=<",rmin," ",length(cormin)," ,cor>=",rmax," ",length(cormax)," ,cor removed ", length(corrlist), " ,Final Col nr ",dim(TCEomit)[2]))
+#if (argv$hmapmax){hmapmax(TCE2cor,cfname)}
+#print(paste0("Stats: cor_all:",length(TCE1all)," ,cor=<",rmin," ",length(cormin)," ,cor>=",rmax," ",length(cormax)," ,cor removed ", length(corrlist), " ,Final Col nr ",dim(TCEomit)[2]))
+quit()

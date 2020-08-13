@@ -1,0 +1,161 @@
+```{r}
+#!/usr/bin/env Rscript
+# This program is used to Explore the file TCE1.csv
+# Check for normality, skew,kurtosis and outliers
+#
+#library(e1071)
+#library(caret)
+#library(psych)
+#install.packages("devtools")
+#library(devtools)
+#install_github("Frostarella/DSUR.noof")
+# From Field Ch4
+library(caret)
+
+capOutlier <- function(x){
+   qnt <- quantile(x, probs=c(.25, .75), na.rm = T)
+   caps <- quantile(x, probs=c(.05, .95), na.rm = T)
+   H <- 1.5 * IQR(x, na.rm = T)
+   x[x < (qnt[1] - H)] <- caps[1]
+   x[x > (qnt[2] + H)] <- caps[2]
+   return(x)
+}
+
+outlierSummary<-function(variable, digits = 2){
+    zvariable<-(variable-mean(variable, na.rm = TRUE))/sd(variable, na.rm = TRUE)
+
+    outlier95<-abs(zvariable) >= 1.96
+    outlier99<-abs(zvariable) >= 2.58
+    outlier999<-abs(zvariable) >= 3.29
+
+    ncases<-length(na.omit(zvariable))
+
+    percent95<-round(100*length(subset(outlier95, outlier95 == TRUE))/ncases, digits)
+    percent99<-round(100*length(subset(outlier99, outlier99 == TRUE))/ncases, digits)
+    percent999<-round(100*length(subset(outlier999, outlier999 == TRUE))/ncases, digits)
+
+    cat("Absolute z-score greater than 1.96 = ", percent95, "%", "\n")
+    cat("Absolute z-score greater than 2.58 = ",  percent99, "%", "\n")
+    cat("Absolute z-score greater than 3.29 = ",  percent999, "%", "\n")
+}
+
+mmcapOutlier <- function(x,digits=2){
+   qnt <- quantile(x, probs=c(.25, .75), na.rm = T)
+   caps <- quantile(x, probs=c(.05, .95), na.rm = T)
+   H <- 1.5 * IQR(x, na.rm = T)
+   
+   ncases<-length(na.omit(x))
+   
+   hiqr<-x[x > (qnt[2] + H)] > caps[2]
+   liqr<-x[x < (qnt[1] - H)] < caps[1]
+   
+   cname<-colnames(x)
+    
+    Hpcnt999<-round(100*length(subset(hiqr, hiqr == TRUE))/ncases, digits)
+    Lpcnt999<-round(100*length(subset(liqr, liqr == TRUE))/ncases, digits)
+    cat("pcnt Above 1.5*IQR  = ", Hpcnt999, "%", "\n")
+    cat("pcnt Below 1.5*IQR  = ", Lpcnt999, "%", "\n")
+    cat("colname = ", cname, "\n")
+    
+#   x[x < (qnt[1] - H)] <- caps[1]
+#   x[x > (qnt[2] + H)] <- caps[2]
+#   return(x)
+}
+mmcapOutlier(df$tce_period)
+apply(df[,c(4:124)],2,mmcapOutlier)
+#sapply(df[,c(4:124)],mmcapOutlier,USE.NAMES = TRUE)
+#temp<-apply(df[,c(4:124)],2,mmCapOutlier)
+#outlierSummary(df$tce_period)
+apply(df[,c(4:124)],2,outlierSummary)
+ncol(temp)
+#for (i in colnames((df[120:128]))){
+#    print(i)
+#}
+
+#temp<-apply(df[,c(4:124)],2,mmoutlierSummary)
+
+
+# Normalise
+range01 <- function(x){(x-min(x))/(max(x)-min(x))}
+
+squishmm <- function(x){
+df<-squish(df$tce_period, quantile(df$tce_period, c(.05, .95)))
+boxplot(df)
+return(df)
+}
+
+set.seed(18191339)
+library(psych)
+library(scales)
+library(caret)
+df <- read.csv("data/TK.csv",header=TRUE,comment="#")
+summary(df)
+#multi.hist(df[,c(4:66)])
+#multi.hist(df[,c(67:128)])
+# Drop rogue flag done in modify1.py
+library(tidyverse)
+df<-filter(df,tce_rogue_flag==1) # Find rogues
+df<-select(df,kepoi_name,kepid,tce_plnt_num,tce_rogue_flag)
+# Zero Variance Flags pre-processing
+#nzv <- nearZeroVar(df, saveMetrics= TRUE)
+#nzv[nzv$nzv,][1:7,]
+
+preProcValues <- preProcess(training, method = c("center", "scale","knnImpute"))
+trainTransformed <- predict(preProcValues, training)
+testTransformed <- predict(preProcValues, test)
+
+#table(apply(df, 1, function(r) all(!(is.na(r)))))
+# Filter all tce_rogue_flag which are 1
+df=preProcess(df)
+dim(df)
+boxplot(df[,c(4:66)],las=2)
+boxplot(df[,c(67:128)])
+boxplot(df$tce_period)  
+boxplot(scale(df$tce_period))  
+df<-subset(df,select= -c(tce_quarters))
+df<-subset(df,select= -c(tce_time0_sn))
+df<-subset(df,select= -c(tce_fwm_sra_sn))
+df<-subset(df,select= -c(tce_fwm_sdec_sn))
+
+outlierSummary(df$tcet_model_chisq)
+apply(df[,c(4:124)],2,outlierSummary)
+
+temp<-apply(df[,c(4:124)],2,mmoutlierSummary)
+
+capOutlier(df$tcet_model_chisq)
+ncol(temp)
+apply(df[,c(4:124)],2,capOutlier)
+#sapply(df$tcet_model_chisq,2,capOutlier)
+   
+#df<-subset(df,select= -c(`tcet_model_chisq`))
+
+# Capped values
+#d2<-squish(df$tcet_model_chisq, quantile(df$tcet_model_chisq, c(.05, .95)))
+#boxplot(d2)
+df$tcet_model_chisq<-squish(df$tcet_model_chisq, quantile(df$tcet_model_chisq, c(.05, .95)))
+df$tce_chisqgof<-squish(df$tce_chisqgof, quantile(df$tce_chisqgof, c(.05, .95)))
+df$tce_chisq1<-squish(df$tce_chisq1, quantile(df$tce_chisq1, c(.05, .95)))
+df$tce_dof2<-squish(df$tce_dof2, quantile(df$tce_dof2, c(.05, .95)))
+df$tce_chisq2<-squish(df$tce_chisq2, quantile(df$tce_chisq2, c(.05, .95)))
+# oedp has outlier maybe just delete
+df$tce_bin_oedp_stat<-squish(df$tce_bin_oedp_stat, quantile(df$tce_bin_oedp_stat, c(.05, .95)))
+df$tce_period_sn<-squish(df$tce_period_sn, quantile(df$tce_period_sn, c(.05, .95)))
+df$tce_time0bk_sn<-squish(df$tce_time0bk_sn, quantile(df$tce_time0bk_sn, c(.05, .95)))
+
+# http://r-statistics.co/Outlier-Treatment-With-R.html
+#library(car)
+#car:outlier(df)
+# Normalised value
+#scale1<-scale(df[,c(4:66)])
+#scale2<-scale(df[,c(67:128)])
+#df.scale<-scale(df[,c(4,66)])
+
+# check that we get mean of 0 and sd of 1
+#colMeans(scaled.dat)  # faster version of apply(scaled.dat, 2, mean)
+#apply(scaled.dat, 2, sd)
+
+#print(paste0("Output: ",argv$ofile))
+data(mtcars)
+mtcars.pca <- prcomp(mtcars[,c(1:7,10,11)], center = TRUE,scale. = TRUE)
+
+```

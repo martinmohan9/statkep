@@ -1,0 +1,132 @@
+\expandafter\newcommand\csname databRFvifconfirmtab\endcsname{
+\begin{table}[H]
+\begin{tabular}
+{| 
+ p{\dimexpr0.25\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.25\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.25\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.25\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+\textbf{kepid} &\textbf{tce\_plnt\_num} &\textbf{kepoi\_name} &\textbf{bRF\_vif} \\ \hline 
+8552719 &2 &K01792.02 &0.945 \\ \hline 
+5370302 &2 &nan &0.942 \\ \hline 
+9838975 &2 &nan &0.93 \\ \hline 
+8176650 &2 &nan &0.927 \\ \hline 
+7975727 &2 &nan &0.909 \\ \hline 
+2581316 &2 &K03681.02 &0.9 \\ \hline 
+8180020 &2 &nan &0.88 \\ \hline 
+10794087 &1 &K01316.01 &0.869 \\ \hline 
+5376836 &2 &nan &0.862 \\ \hline 
+7037540 &2 &nan &0.86 \\ \hline 
+9411166 &2 &nan &0.858 \\ \hline 
+4840513 &2 &nan &0.849 \\ \hline 
+10616571 &3 &nan &0.848 \\ \hline 
+9446824 &2 &nan &0.847 \\ \hline 
+5978559 &1 &K02321.01 &0.845 \\ \hline 
+9071386 &2 &nan &0.838 \\ \hline 
+11709124 &2 &nan &0.833 \\ \hline 
+7584650 &1 &K02631.01 &0.825 \\ \hline 
+7972785 &2 &nan &0.823 \\ \hline 
+3734868 &2 &nan &0.811 \\ \hline 
+8953059 &2 &nan &0.81 \\ \hline 
+10904857 &2 &nan &0.807 \\ \hline 
+1571511 &2 &nan &0.797 \\ \hline 
+5372966 &2 &nan &0.796 \\ \hline 
+9288786 &2 &nan &0.784 \\ \hline 
+9995771 &1 &K03470.01 &0.776 \\ \hline 
+6762829 &2 &nan &0.769 \\ \hline 
+12504988 &2 &nan &0.768 \\ \hline 
+10016874 &1 &K00426.01 &0.763 \\ \hline 
+6756669 &2 &nan &0.758 \\ \hline 
+6428794 &1 &K04054.01 &0.757 \\ \hline 
+8263545 &1 &K02822.01 &0.752 \\ \hline 
+5534941 &1 &K02332.01 &0.744 \\ \hline 
+5356593 &2 &nan &0.735 \\ \hline 
+3097926 &1 &K02186.01 &0.735 \\ \hline 
+5092266 &1 &K03045.01 &0.731 \\ \hline 
+3342592 &2 &nan &0.728 \\ \hline 
+8892910 &2 &nan &0.726 \\ \hline 
+4851464 &2 &nan &0.718 \\ \hline 
+5775129 &1 &K02802.01 &0.717 \\ \hline 
+5786676 &1 &K00650.01 &0.715 \\ \hline 
+5872150 &3 &nan &0.713 \\ \hline 
+10464078 &2 &nan &0.712 \\ \hline 
+8801343 &2 &nan &0.709 \\ \hline 
+4242147 &1 &K01934.01 &0.708 \\ \hline 
+5035972 &2 &nan &0.703 \\ \hline 
+10091110 &3 &nan &0.698 \\ \hline 
+9528420 &2 &nan &0.697 \\ \hline 
+3970233 &2 &nan &0.695 \\ \hline 
+11126381 &1 &K01863.01 &0.695 \\ \hline 
+11030475 &2 &nan &0.693 \\ \hline 
+4650733 &1 &K01659.01 &0.692 \\ \hline 
+7449554 &1 &K02357.01 &0.69 \\ \hline 
+3102000 &2 &nan &0.683 \\ \hline 
+6432345 &1 &K02757.01 &0.682 \\ \hline 
+6041734 &2 &nan &0.679 \\ \hline 
+4814502 &1 &K04004.01 &0.675 \\ \hline 
+8823868 &2 &nan &0.669 \\ \hline 
+8953257 &2 &nan &0.663 \\ \hline 
+11408935 &2 &nan &0.662 \\ \hline 
+5270698 &2 &nan &0.656 \\ \hline 
+9934208 &2 &nan &0.648 \\ \hline 
+5031857 &2 &K01573.02 &0.645 \\ \hline 
+7362696 &2 &nan &0.643 \\ \hline 
+8043714 &2 &nan &0.637 \\ \hline 
+8753896 &2 &nan &0.636 \\ \hline 
+3231341 &5 &nan &0.621 \\ \hline 
+5124667 &1 &K01822.01 &0.613 \\ \hline 
+11465950 &1 &K02620.01 &0.61 \\ \hline 
+7375348 &2 &K00266.02 &0.609 \\ \hline 
+6698670 &2 &nan &0.608 \\ \hline 
+5980783 &1 &K02967.01 &0.607 \\ \hline 
+3218908 &4 &nan &0.603 \\ \hline 
+9649222 &2 &nan &0.603 \\ \hline 
+3323887 &3 &nan &0.603 \\ \hline 
+9705459 &2 &nan &0.602 \\ \hline 
+5042210 &1 &K02462.01 &0.601 \\ \hline 
+3323887 &2 &nan &0.597 \\ \hline 
+1026957 &1 &K00958.01 &0.591 \\ \hline 
+8458207 &2 &nan &0.588 \\ \hline 
+9346253 &2 &nan &0.587 \\ \hline 
+2449431 &1 &K02009.01 &0.585 \\ \hline 
+6666233 &2 &nan &0.57 \\ \hline 
+4665571 &2 &K02393.02 &0.565 \\ \hline 
+6603756 &2 &nan &0.561 \\ \hline 
+9836959 &1 &K01715.01 &0.561 \\ \hline 
+5780885 &2 &nan &0.555 \\ \hline 
+5213230 &1 &K03474.01 &0.555 \\ \hline 
+10186945 &2 &nan &0.553 \\ \hline 
+10287248 &2 &nan &0.546 \\ \hline 
+5446285 &3 &nan &0.546 \\ \hline 
+8236479 &1 &nan &0.54 \\ \hline 
+5966810 &1 &K03909.01 &0.54 \\ \hline 
+6805146 &2 &nan &0.539 \\ \hline 
+7023960 &2 &nan &0.538 \\ \hline 
+10710755 &2 &nan &0.537 \\ \hline 
+6792908 &1 &K04341.01 &0.536 \\ \hline 
+3323887 &4 &nan &0.53 \\ \hline 
+11404644 &2 &nan &0.529 \\ \hline 
+8617363 &1 &K02945.01 &0.52 \\ \hline 
+7269881 &2 &nan &0.52 \\ \hline 
+11517719 &2 &nan &0.518 \\ \hline 
+10923260 &2 &nan &0.517 \\ \hline 
+9098590 &2 &nan &0.507 \\ \hline 
+11968463 &3 &K02433.03 &0.504 \\ \hline 
+2574338 &1 &K01030.01 &0.503 \\ \hline 
+7750419 &1 &K01708.01 &0.502 \\ \hline 
+8460600 &2 &nan &0.501 \\ \hline 
+\end{tabular} 
+\end{table}
+}
+\begin{figure}[H]
+                \centering
+                \begin{subfigure}{1\textwidth}
+                \includegraphics[width = 1\textwidth]{data/bRF_vif_pred_CONFIRMED.pdf}
+                \end{subfigure}
+                \begin{subfigure}{1\textwidth}
+                \csname databRFvifconfirmtab\endcsname
+                \end{subfigure}
+                \caption{bRFvif: Planets predicted as CONFIRMED and Top 10 predictions}
+                \label{fig:data/bRF_vif_pred_CONFIRMED}
+                \end{figure}

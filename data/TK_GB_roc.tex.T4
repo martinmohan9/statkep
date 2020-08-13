@@ -1,0 +1,7 @@
+
+\begin{figure}[H]
+                \centering
+                \includegraphics[width = 1\textwidth,height=.4\textheight]{data/TK_GB_roc.pdf}
+                \caption{}
+                \label{fig:data/TK_GB_roc}
+                \end{figure}

@@ -1,0 +1,7 @@
+
+\begin{figure}[H]
+                \centering
+                \includegraphics[width = 1\textwidth,height=.4\textheight]{data/GBtest_pred_confirm.pdf}
+                \caption{GBtest: Planets predicted as CONFIRMED}
+                \label{fig:data/GBtest_pred_confirm}
+                \end{figure}

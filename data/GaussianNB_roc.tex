@@ -1,0 +1,40 @@
+\expandafter\newcommand\csname dataGaussianNBmetrictab\endcsname{
+\begin{table}[H]
+\begin{tabular}
+{| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+ p{\dimexpr0.2\textwidth-2\tabcolsep-\arrayrulewidth\relax}| 
+}\hline 
+\textbf{} &\textbf{f1-score} &\textbf{precision} &\textbf{recall} &\textbf{support} \\ \hline 
+CANDIDATE &0.0 &0.0 &0.0 &170.0 \\ \hline 
+CONFIRMED &0.512 &0.348 &0.971 &241.0 \\ \hline 
+FALSE POSITIVE &0.382 &0.931 &0.24 &391.0 \\ \hline 
+accuracy &0.409 &0.409 &0.409 &0.409 \\ \hline 
+macro avg &0.298 &0.426 &0.404 &802.0 \\ \hline 
+weighted avg &0.34 &0.558 &0.409 &802.0 \\ \hline 
+\end{tabular} 
+\end{table}
+}
+\begin{figure}[H]
+                \centering
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/GaussianNB_overfit_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/GaussianNB_overfit_cm.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/GaussianNB_roc.pdf}
+                \end{subfigure}
+                \begin{subfigure}{.49\textwidth}
+                \includegraphics[width = 1\textwidth]{data/GaussianNB_cm.pdf}
+                \end{subfigure}
+                \begin{subfigure}{1\textwidth}
+                \csname dataGaussianNBmetrictab\endcsname
+                \end{subfigure}
+                \caption{GaussianNB: Top Row: overfit test. Middle and bottom row test data}
+                \label{fig:data/GaussianNB_roc}
+                \end{figure}
