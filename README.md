@@ -7,8 +7,9 @@ See doc/ for a description.
 doc/exoplanet.pdf - Report
 doc/configManual.pdf - Configuration Manual
 
-doc/vivaOverview1.mp4 - Overview
+doc/viva.mp4 - Project overview
 doc/viva.pdf
 
-doc/codeWT.mp4 - code walkthrough
+doc/codeWT.mp4 - Project code walkthrough
 doc/codeWT.pdf
+

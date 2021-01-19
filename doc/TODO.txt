@@ -1,0 +1,1 @@
+TODO: Planets confirmed statistically may have been redisignated from CANDIDATE to CONFIRMED in latest data due to statistical confirmation (e.g Shallue). To allow better comparison of my results to their results re-assign these as unconfirmed and rerun code
